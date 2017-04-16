@@ -1,0 +1,47 @@
+{
+  "name": "timhortons",
+  "version": "0.0.1",
+  "description": "Tim Hortons store finder",
+  "main": "index.js",
+  "repository": "git+https://github.com/eatonk/timhortons.git",
+  "author": "Kirk Eaton <kirk.eaton@gmail.com>",
+  "keywords": [
+    "tim",
+    "hortons",
+    "store",
+    "finder"
+  ],
+  "scripts": {
+    "lint": "./node_modules/xo/cli.js",
+    "test": "node ./node_modules/lab/bin/lab -l -v test/*.js"
+  },
+  "xo": {
+    "space": true,
+    "esnext": false,
+    "rules": {
+      "unicorn/filename-case": 0,
+      "import/no-unassigned-import": 0,
+      "no-negated-condition": 0,
+      "no-else-return": 0,
+      "padded-blocks": 0,
+      "quote-props": 0,
+      "new-cap": 0,
+      "object-shorthand": 0,
+      "object-curly-spacing": 0,
+      "no-use-extend-native/no-use-extend-native": 0,
+      "no-template-curly-in-string": 0,
+      "camelcase": 0
+    }
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "hoek": "^4.1.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "lab": "^13.0.2",
+    "xo": "^0.18.1"
+  }
+}
