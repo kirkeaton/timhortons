@@ -15,7 +15,7 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
       origlng: -79.4005990
     })
     .then(function (result) {
-      //console.log(JSON.stringify(result));
+      assert(result.length > 0);
       return done();
     })
     .catch(function (err) {
@@ -30,7 +30,7 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
       origlng: -79.4005990
     })
     .then(function (result) {
-      //console.log(JSON.stringify(result));
+      assert(result.length > 0);
       return done();
     })
     .catch(function (err) {

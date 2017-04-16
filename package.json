@@ -32,7 +32,10 @@
       "no-use-extend-native/no-use-extend-native": 0,
       "no-template-curly-in-string": 0,
       "camelcase": 0
-    }
+    },
+    "ignore": [
+      "test/*.*"
+    ]
   },
   "dependencies": {
     "bluebird": "^3.5.0",
