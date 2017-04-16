@@ -11,8 +11,8 @@ const it = lab.test;
 describe('Tim Hortons', { timeout: 5000 }, function () {
   it('should return tim hortons stores given valid lat and lng', function (done) {
     timhortons({
-      origlat: 43.6371620,
-      origlng: -79.4005990
+      origlat: 42.603187,
+      origlng: -83.261646
     })
     .then(function (result) {
       assert(result.length > 0);
@@ -26,8 +26,8 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
   it('should return tim hortons stores given valid radius, lat and lng', function (done) {
     timhortons({
       rad: 10,
-      origlat: 43.6371620,
-      origlng: -79.4005990
+      origlat: 42.603187,
+      origlng: -83.261646
     })
     .then(function (result) {
       assert(result.length > 0);
@@ -52,8 +52,8 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
   it('should throw error given invalid radius', function (done) {
     timhortons({
       rad: -1,
-      origlat: 43.6371620,
-      origlng: -79.4005990
+      origlat: 42.603187,
+      origlng: -83.261646
     })
     .then(function (result) {
       return done(new Error('Should not return results with invalid radius'));
@@ -66,7 +66,7 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
 
   it('should throw error given missing latitude', function (done) {
     timhortons({
-      origlng: -79.4005990
+      origlng: -83.261646
     })
     .then(function () {
       return done(new Error('Should not return results with missing latitude'));
@@ -79,7 +79,7 @@ describe('Tim Hortons', { timeout: 5000 }, function () {
 
   it('should throw error given missing longitude', function (done) {
     timhortons({
-      origlat: 43.6371620,
+      origlat: 42.603187,
     })
     .then(function () {
       return done(new Error('Should not return results with missing longitude'));
