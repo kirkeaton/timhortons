@@ -5,6 +5,7 @@
   "main": "index.js",
   "repository": "git+https://github.com/eatonk/timhortons.git",
   "author": "Kirk Eaton <kirk.eaton@gmail.com>",
+  "license": "MIT",
   "keywords": [
     "tim",
     "hortons",
