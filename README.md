@@ -1,6 +1,6 @@
 # timhortons
 
-[![Build Status](https://travis-ci.org/eatonk/timhortons.svg?branch=master)](https://travis-ci.org/eatonk/timhortons)
+[![Build Status](https://travis-ci.org/kirkeaton/timhortons.svg?branch=master)](https://travis-ci.org/kirkeaton/timhortons)
 
 ## Description
 Tim Hortons store finder
