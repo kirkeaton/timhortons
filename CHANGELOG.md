@@ -7,4 +7,6 @@
 	- `origlat` to `latitude`
 	- `origlng` to `longitude`
 
-## [0.0.1] - 
+## [0.0.1] - 2017-04-16
+
+- Initial release
