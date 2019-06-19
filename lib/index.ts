@@ -1,9 +1,12 @@
 import * as rp from 'request-promise';
 import * as xml2js from 'xml2js';
 import * as util from 'util';
+import { IQueryParams, IStoreResponse } from './models';
+import { StoreTransformer } from './transformers';
 
 const uri = 'http://www.timhortons.com/ca/en/php/getRestaurants.php';
 const parseString = util.promisify(xml2js.parseString);
+const defaultTransformer = new StoreTransformer();
 
 /**
  * Transforms XML response into array of stores
@@ -11,15 +14,16 @@ const parseString = util.promisify(xml2js.parseString);
  * @param {string} body XML Response from Tim Hortons API
  * @return {Promise<any>}
  */
-async function transform(body: string): Promise<any> {
+async function transform(body: string): Promise<IStoreResponse[]> {
    return parseString(body).then(function(result: any) {
       // Check for xml tags markers and marker
       if (!result.markers && !result.markers.marker) {
          throw new Error('Error fetching stores');
       }
+
       // Extract stores from nested object
       return result.markers.marker.map((marker: any) => {
-         return marker.$;
+         return defaultTransformer.transform(marker.$);
       });
    });
 }
@@ -27,25 +31,19 @@ async function transform(body: string): Promise<any> {
 /**
  * Fetches a list of Tim Hortons stores given a latitude and longitude
  *
- * @param {Object} options Search options
- * @param {Number} options.rad Search radius distance in KM
- * @param {Number} options.origlat Longitude
- * @param {Number} options.origlng Latitude
+ * @param {IQueryParams} params Search parameters
  * @return {Promise<any>}
  */
-export default async function timhortons(options?: any): Promise<any> {
-   if (!options) {
-      throw new Error('Missing required parameter: options');
+export default async function timhortons(params?: IQueryParams): Promise<any> {
+   if (!params) {
+      throw new Error('Missing required parameter: params');
    }
 
    const query = {
-      ...{
-         units: 'km',
-         rad: 5,
-         origlat: undefined,
-         origlng: undefined,
-      },
-      ...options,
+      units: 'km',
+      rad: params.radius || 5,
+      origlat: params.latitude,
+      origlng: params.longitude,
    };
 
    // Radius must be greater than 0
@@ -54,10 +52,10 @@ export default async function timhortons(options?: any): Promise<any> {
    }
    // Latitude and longitude are both required
    if (!query.origlat) {
-      throw new Error('Missing required parameter: origlat');
+      throw new Error('Missing required parameter: latitude');
    }
    if (!query.origlng) {
-      throw new Error('Missing required parameter: origlng');
+      throw new Error('Missing required parameter: longitude');
    }
 
    return rp({
