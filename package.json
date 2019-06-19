@@ -1,5 +1,5 @@
 {
-   "name": "timhortons",
+   "name": "@kirkeaton/timhortons",
    "version": "1.0.0",
    "description": "Tim Hortons store finder",
    "main": "index.ts",
