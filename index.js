@@ -1,1 +1,3 @@
-module.exports = require('./lib/timhortons.js');
+import timhortons from './lib/timhortons';
+
+export default timhortons;
