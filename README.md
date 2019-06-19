@@ -15,12 +15,12 @@ npm install --save timhortons
 ## Usage
 
 ```
-const timhortons = require('timhortons');
+import timhortons from 'timhortons';
 
 const opts = {
-  rad: 5,
-  origlat: 43.446579,
-  origlng: -79.696926
+  radius: 5,
+  latitude: 43.446579,
+  longitude: -79.696926
 };
 
 timhortons(opts)
@@ -38,20 +38,20 @@ timhortons(opts)
 Type: `object`<br/>
 Required: `true`
 
-#### options.rad
+#### options.radius
 
 Type: `number`<br/>
 Required: `false`<br/>
 Default: `5`<br/>
 Description: Search radius in KM
 
-#### options.origlat
+#### options.latitude
 
 Type: `number`<br/>
 Required: `true`<br/>
 Description: Latitude
 
-#### options.origlng
+#### options.longitude
 
 Type: `number`<br/>
 Required: `true`<br/>
