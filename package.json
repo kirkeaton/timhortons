@@ -1,6 +1,6 @@
 {
    "name": "@kirkeaton/timhortons",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "Tim Hortons store finder",
    "main": "index.ts",
    "repository": "git://github.com/kirkeaton/timhortons.git",
