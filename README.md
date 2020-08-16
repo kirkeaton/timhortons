@@ -1,3 +1,7 @@
+# **DEPRECATED** - package no longer works
+
+---
+
 # timhortons
 
 [![CircleCI](https://circleci.com/gh/kirkeaton/timhortons.svg?style=svg)](https://circleci.com/gh/kirkeaton/timhortons)
